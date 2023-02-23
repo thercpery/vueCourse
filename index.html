@@ -44,6 +44,11 @@
                 </button>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <my-component></my-component>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.min.js"></script>
@@ -51,6 +56,13 @@
         let data = {
             message: 'Hello, Vue!',
             counter: 0,
+        };
+
+        const MyComponent = {
+            props: [],
+            template: `
+                <h1>My Component</h1>
+            `,
         };
 
         const vm = Vue.createApp({
@@ -64,6 +76,9 @@
                 decrementCounter() {
                     this.counter--;
                 },
+            },
+            components: {
+                MyComponent,
             },
         }).mount('#app');
     </script>
