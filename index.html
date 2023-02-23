@@ -27,19 +27,44 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <h1>{{ counter }}</h1>
+                <hr>
+                <button 
+                    v-on:click="incrementCounter" 
+                    class="btn btn-outline-secondary">
+                    Increment
+                </button>
+                &nbsp;
+                <button
+                    v-on:click="decrementCounter" 
+                    class="btn btn-outline-secondary">
+                    Decrement
+                </button>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.min.js"></script>
     <script>
         let data = {
             message: 'Hello, Vue!',
-            fish: 'Fish',
+            counter: 0,
         };
 
         const vm = Vue.createApp({
             data() {
                 return data;
-            }
+            },
+            methods: {
+                incrementCounter() {
+                    this.counter++;
+                },
+                decrementCounter() {
+                    this.counter--;
+                },
+            },
         }).mount('#app');
     </script>
 </body>
